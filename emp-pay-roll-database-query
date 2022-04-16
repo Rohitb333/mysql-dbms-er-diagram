@@ -82,3 +82,55 @@ Rows matched: 2  Changed: 2  Warnings: 0
 mysql> update employee set gender = 'F' where name = 'Priti' or name = 'Swati';
 Query OK, 2 row affected (0.11 sec)
 Rows matched: 2  Changed: 2  Warnings: 0
+
+============================================= UC 7  ===================================================
+
+
+mysql> select SUM(salary) from employee where gender = 'F' GROUP BY GENDER;
++-------------+
+| SUM(salary) |
++-------------+
+|      750000 |
++-------------+
+1 row in set (0.03 sec)
+
+
+mysql> select SUM(salary) from employee where gender = 'M' GROUP BY GENDER;
++-------------+
+| SUM(salary) |
++-------------+
+|      400000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select AVG(salary) from employee where gender = 'M' GROUP BY GENDER;
++-------------+
+| AVG(salary) |
++-------------+
+|      200000 |
++-------------+
+1 row in set (0.02 sec)
+
+mysql> select MIN(salary) from employee where gender = 'M' GROUP BY GENDER;
++-------------+
+| MIN(salary) |
++-------------+
+|      150000 |
++-------------+
+1 row in set (0.04 sec)
+
+mysql> select MAX(salary) from employee where gender = 'M' GROUP BY GENDER;
++-------------+
+| MAX(salary) |
++-------------+
+|      250000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select COUNT(salary) from employee where gender = 'M' GROUP BY GENDER;
++---------------+
+| COUNT(salary) |
++---------------+
+|             2 |
++---------------+
+1 row in set (0.00 sec)

@@ -1,0 +1,230 @@
+==================================================UC 1 Create DataBase ===============================================
+
+mysql> create database Address_Book_Service;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++----------------------+
+| Database             |
++----------------------+
+| address_book_service |
+| information_schema   |
+| mysql                |
+| payroll_service      |
+| performance_schema   |
+| sys                  |
++----------------------+
+6 rows in set (0.01 sec)
+
+===================================================UC 2 Create Table===================================================
+
+mysql> use address_book_service;
+Database changed
+
+mysql> create table Address_Book(
+    ->  firstname varchar(50) not null,
+    -> lastname varchar(50) not null,
+    -> address varchar(100) not null,
+    -> city varchar(50) not null,
+    -> state varchar(50) not null,
+    -> zip int not null,
+    -> phonenumber double not null,
+    ->  email varchar(100) not null);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql>  desc address_book;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstname   | varchar(50)  | NO   |     | NULL    |       |
+| lastname    | varchar(50)  | NO   |     | NULL    |       |
+| address     | varchar(100) | NO   |     | NULL    |       |
+| city        | varchar(50)  | NO   |     | NULL    |       |
+| state       | varchar(50)  | NO   |     | NULL    |       |
+| zip         | int          | NO   |     | NULL    |       |
+| phonenumber | double       | NO   |     | NULL    |       |
+| email       | varchar(100) | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+8 rows in set (0.02 sec)
+
+===================================================== UC 3 Insert Value In Table ========================================
+
+mysql> insert into Address_Book(firstname,lastname,address,city,state,zip,phonenumber,email) values('Rohit','Bansod','Nagpur','Nagpur','maharashtra',441904,8329522845,'rohitb333@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Address_Book(firstname,lastname,address,city,state,zip,phonenumber,email) values('Mayur','Borkar','Bhandara','Bhandara','maharashtra',441910,7620743481,'mayurb@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Address_Book(firstname,lastname,address,city,state,zip,phonenumber,email) values('Priti','Gajbhiye','Pune','Pune','maharashtra',411041,9890743481,'pritig@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Address_Book(firstname,lastname,address,city,state,zip,phonenumber,email) values('Swati','Chaware','Gondia','Gondia','maharashtra',413041,9876632642,'swatic@gmail.com');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into Address_Book(firstname,lastname,address,city,state,zip,phonenumber,email) values('mangesh','Patil','Nashik','Nashik','maharashtra',443045,8653256235,'mangeshp@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql>  select * from Address_book;
++-----------+----------+----------+----------+-------------+--------+-------------+---------------------+
+| firstname | lastname | address  | city     | state       | zip    | phonenumber | email               |
++-----------+----------+----------+----------+-------------+--------+-------------+---------------------+
+| Rohit     | Bansod   | Nagpur   | Nagpur   | maharashtra | 441904 |  8329522845 | rohitb333@gmail.com |
+| Mayur     | Borkar   | Bhandara | Bhandara | maharashtra | 441910 |  7620743481 | mayurb@gmail.com    |
+| Priti     | Gajbhiye | Pune     | Pune     | maharashtra | 411041 |  9890743481 | pritig@gmail.com    |
+| Swati     | Chaware  | Gondia   | Gondia   | maharashtra | 413041 |  9876632642 | swatic@gmail.com    |
+| mangesh   | Patil    | Nashik   | Nashik   | maharashtra | 443045 |  8653256235 | mangeshp@gmail.com  |
++-----------+----------+----------+----------+-------------+--------+-------------+---------------------+
+5 rows in set (0.00 sec)
+
+======================================= UC 4 Editing the existing contact by their firstname ================================
+
+mysql> update Address_book set firstname = 'Abhishek' where lastname = 'Patil';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Address_book;
++-----------+----------+----------+----------+-------------+--------+-------------+---------------------+
+| firstname | lastname | address  | city     | state       | zip    | phonenumber | email               |
++-----------+----------+----------+----------+-------------+--------+-------------+---------------------+
+| Rohit     | Bansod   | Nagpur   | Nagpur   | maharashtra | 441904 |  8329522845 | rohitb333@gmail.com |
+| Mayur     | Borkar   | Bhandara | Bhandara | maharashtra | 441910 |  7620743481 | mayurb@gmail.com    |
+| Priti     | Gajbhiye | Pune     | Pune     | maharashtra | 411041 |  9890743481 | pritig@gmail.com    |
+| Swati     | Chaware  | Gondia   | Gondia   | maharashtra | 413041 |  9876632642 | swatic@gmail.com    |
+| Abhishek  | Patil    | Nashik   | Nashik   | maharashtra | 443045 |  8653256235 | mangeshp@gmail.com  |
++-----------+----------+----------+----------+-------------+--------+-------------+---------------------+
+5 rows in set (0.00 sec)
+
+============================================== UC 5 Deleting the contact by their lastname ==================================
+
+mysql> delete from Address_book where lastname = 'Borkar';
+Query OK, 1 row affected (0.03 sec)
+
+mysql>  select * from Address_book;
++-----------+----------+---------+--------+-------------+--------+-------------+---------------------+
+| firstname | lastname | address | city   | state       | zip    | phonenumber | email               |
++-----------+----------+---------+--------+-------------+--------+-------------+---------------------+
+| Rohit     | Bansod   | Nagpur  | Nagpur | maharashtra | 441904 |  8329522845 | rohitb333@gmail.com |
+| Priti     | Gajbhiye | Pune    | Pune   | maharashtra | 411041 |  9890743481 | pritig@gmail.com    |
+| Swati     | Chaware  | Gondia  | Gondia | maharashtra | 413041 |  9876632642 | swatic@gmail.com    |
+| Abhishek  | Patil    | Nashik  | Nashik | maharashtra | 443045 |  8653256235 | mangeshp@gmail.com  |
++-----------+----------+---------+--------+-------------+--------+-------------+---------------------+
+4 rows in set (0.00 sec)
+
+=================================================== UC 6 Retrieving the contact by city or state =============================
+
+mysql> select * from Address_book where city = 'Nagpur' or state = 'maharashtra';
++-----------+----------+---------+--------+-------------+--------+-------------+---------------------+
+| firstname | lastname | address | city   | state       | zip    | phonenumber | email               |
++-----------+----------+---------+--------+-------------+--------+-------------+---------------------+
+| Rohit     | Bansod   | Nagpur  | Nagpur | maharashtra | 441904 |  8329522845 | rohitb333@gmail.com |
+| Priti     | Gajbhiye | Pune    | Pune   | maharashtra | 411041 |  9890743481 | pritig@gmail.com    |
+| Swati     | Chaware  | Gondia  | Gondia | maharashtra | 413041 |  9876632642 | swatic@gmail.com    |
+| Abhishek  | Patil    | Nashik  | Nashik | maharashtra | 443045 |  8653256235 | mangeshp@gmail.com  |
++-----------+----------+---------+--------+-------------+--------+-------------+---------------------+
+4 rows in set (0.00 sec)
+
+======================================= UC 7 Size of addressbook by city and state ==========================================
+
+mysql>  select count(firstname) from Address_book where city = 'Gondia';
++------------------+
+| count(firstname) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.00 sec)
+
+====================================== UC 8 Sorting the name alphbetically for given city ====================================
+
+mysql> select firstname,city from Address_book order by city;
++-----------+--------+
+| firstname | city   |
++-----------+--------+
+| Swati     | Gondia |
+| Rohit     | Nagpur |
+| Abhishek  | Nashik |
+| Priti     | Pune   |
++-----------+--------+
+4 rows in set (0.00 sec)
+
+===================================== UC 9 Altering the table with addressbook name and contact type =========================
+
+mysql> alter table Address_book add bookname varchar(50) not null,add contacttype varchar(50) not null;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc address_book;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstname   | varchar(50)  | NO   |     | NULL    |       |
+| lastname    | varchar(50)  | NO   |     | NULL    |       |
+| address     | varchar(100) | NO   |     | NULL    |       |
+| city        | varchar(50)  | NO   |     | NULL    |       |
+| state       | varchar(50)  | NO   |     | NULL    |       |
+| zip         | int          | NO   |     | NULL    |       |
+| phonenumber | double       | NO   |     | NULL    |       |
+| email       | varchar(100) | NO   |     | NULL    |       |
+| bookname    | varchar(50)  | NO   |     | NULL    |       |
+| contacttype | varchar(50)  | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+10 rows in set (0.01 sec)
+
+mysql> update Address_book set bookname ='InfoBook',contacttype= 'friend' where lastname = 'Patil';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  select * from address_book;
++-----------+----------+---------+--------+-------------+--------+-------------+---------------------+----------+-------------+
+| firstname | lastname | address | city   | state       | zip    | phonenumber | email               | bookname | contacttype |
++-----------+----------+---------+--------+-------------+--------+-------------+---------------------+----------+-------------+
+| Rohit     | Bansod   | Nagpur  | Nagpur | maharashtra | 441904 |  8329522845 | rohitb333@gmail.com |          |             |
+| Priti     | Gajbhiye | Pune    | Pune   | maharashtra | 411041 |  9890743481 | pritig@gmail.com    |          |             |
+| Swati     | Chaware  | Gondia  | Gondia | maharashtra | 413041 |  9876632642 | swatic@gmail.com    |          |             |
+| Abhishek  | Patil    | Nashik  | Nashik | maharashtra | 443045 |  8653256235 | mangeshp@gmail.com  | InfoBook | friend      |
++-----------+----------+---------+--------+-------------+--------+-------------+---------------------+----------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from Address_Book Where contacttype = 'friend';
++-----------+----------+---------+--------+-------------+--------+-------------+--------------------+----------+-------------+
+| firstname | lastname | address | city   | state       | zip    | phonenumber | email              | bookname | contacttype |
++-----------+----------+---------+--------+-------------+--------+-------------+--------------------+----------+-------------+
+| Abhishek  | Patil    | Nashik  | Nashik | maharashtra | 443045 |  8653256235 | mangeshp@gmail.com | InfoBook | friend      |
++-----------+----------+---------+--------+-------------+--------+-------------+--------------------+----------+-------------+
+1 row in set (0.00 sec)
+
+================================== UC 10 Ability to get count of contacts by contacttype ===============================================
+
+mysql> select count(firstname) from Address_book where contacttype='friend';
++------------------+
+| count(firstname) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.00 sec)
+
+========================================UC 11 Create Table ============================================================================
+
+mysql> use address_book_service;
+Database changed
+mysql>  create table Address_book_Details(
+    ->  SR_No int AUTO_INCREMENT,
+    -> Address_book_type varchar(30),
+    ->  PRIMARY KEY(SR_No));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> INSERT INTO address_book_details(Address_book_type) VALUES
+    -> ('Bank');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO address_book_details(Address_book_type) VALUES
+    -> ('Student');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from Address_book_details;
++-------+-------------------+
+| SR_No | Address_book_type |
++-------+-------------------+
+|     1 | Bank              |
+|     2 | Student           |
++-------+-------------------+
+2 rows in set (0.00 sec)

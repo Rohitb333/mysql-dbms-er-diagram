@@ -45,3 +45,17 @@ Query OK, 1 row affected (0.18 sec)
 mysql> INSERT INTO employee ( name , salary, start) VALUES
     -> ('Swati', 450000.00,'2020-04-05');
 Query OK, 1 row affected (0.10 sec)
+
+======================================= UC 4 Display the Table =====================================================
+
+mysql> select * from employee;
++----+----------+--------+------------+
+| id | name     | salary | start      |
++----+----------+--------+------------+
+|  1 | Shubham  | 150000 | 2021-01-25 |
+|  2 | Rohit    | 250000 | 2020-05-15 |
+|  3 | Priti    | 300000 | 2019-03-18 |
+|  4 | Swati    | 450000 | 2020-04-05 |
++----+----------+--------+------------+
+4 rows in set (0.10 sec)
+

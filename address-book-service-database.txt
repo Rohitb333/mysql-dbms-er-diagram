@@ -196,3 +196,14 @@ mysql> select * from Address_Book Where contacttype = 'friend';
 | Aniket    | Kumbhar  | kolhapur | kolhapur | maharashtra | 500038 |  9177530369 | aniket@gmail.com | Java     | friend      |
 +-----------+----------+----------+----------+-------------+--------+-------------+------------------+----------+-------------+
 1 row in set (0.00 sec)
+
+==================================================== UC 10 Ability to get count of contacts by contacttype ===============================================
+
+
+mysql> select count(firstname) from Address_book where contacttype='friend';
++------------------+
+| count(firstname) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.00 sec)

@@ -127,3 +127,13 @@ mysql> select * from Address_book where city = 'pune' or state = 'maharashtra';
 | Ankita    | Lohar    | vagholi  | pune     | maharashtra | 412110 |  9945236952 | ankitalohar@gmail.com |
 +-----------+----------+----------+----------+-------------+--------+-------------+-----------------------+
 4 rows in set (0.00 sec)
+
+================================================== UC 7 Size of addressbook by city and state =======================================================
+
+mysql> select count(firstname) from Address_book where city = 'pune';
++------------------+
+| count(firstname) |
++------------------+
+|                2 |
++------------------+
+1 row in set (0.09 sec)

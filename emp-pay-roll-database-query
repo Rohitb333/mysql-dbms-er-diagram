@@ -27,3 +27,21 @@ mysql> create table employee(
     -> start DATE NOT NULL,
     -> PRIMARY KEY (id));
 Query OK, 0 rows affected (3.66 sec)
+
+======================================= UC 3 INSERT Data into Table ==============================================
+
+mysql> INSERT INTO employee ( name , salary, start) VALUES
+    ->  ('Shubham', 150000.00, '2021-01-25');
+Query OK, 1 row affected (0.48 sec)
+
+mysql> INSERT INTO employee ( name , salary, start) VALUES
+    ->  ('Rohit', 250000.00, '2020-05-15');
+Query OK, 1 row affected (0.19 sec)
+
+mysql> INSERT INTO employee ( name , salary, start) VALUES
+    -> ('Priti', 300000.00,'2019-03-18');
+Query OK, 1 row affected (0.18 sec)
+
+mysql> INSERT INTO employee ( name , salary, start) VALUES
+    -> ('Swati', 450000.00,'2020-04-05');
+Query OK, 1 row affected (0.10 sec)

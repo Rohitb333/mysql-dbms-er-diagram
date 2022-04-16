@@ -47,3 +47,35 @@ mysql> desc address_book;
 | email       | varchar(100) | NO   |     | NULL    |       |
 +-------------+--------------+------+-----+---------+-------+
 8 rows in set (0.21 sec)
+
+===================================================== UC 3 Insert Value In Table ========================================
+
+
+mysql> insert into AddressBook(firstname,lastname,address,city,state,zip,phonenumber,email) values('Aniket','Kumbhar','kolhapur','kolhapur','maharashtra',500038,9177530369,'aniket@gmail.com');
+ERROR 1146 (42S02): Table 'address_book_service.addressbook' doesn't exist
+mysql> insert into Address_Book(firstname,lastname,address,city,state,zip,phonenumber,email) values('Aniket','Kumbhar','kolhapur','kolhapur','maharashtra',500038,9177530369,'aniket@gmail.com');
+Query OK, 1 row affected (0.52 sec)
+
+mysql> insert into Address_Book(firstname,lastname,address,city,state,zip,phonenumber,email) values('Mayuri','Patil','Nagpur','Nagpur','maharashtra',416310,9922134563,'patilmayuri@gmail.com');
+Query OK, 1 row affected (0.29 sec)
+
+mysql> insert into Address_Book(firstname,lastname,address,city,state,zip,phonenumber,email) values('Prajakta','Sawant','Sawantpur','Sangli','maharashtra',416308,8485821504,'sawantpraju@gmail.com');
+Query OK, 1 row affected (0.17 sec)
+
+mysql> insert into Address_Book(firstname,lastname,address,city,state,zip,phonenumber,email) values('Vaibhav','Nikam','Charoli','pune','maharashtra',412105,9960224670,'Vaibhav@gmail.com');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> insert into Address_Book(firstname,lastname,address,city,state,zip,phonenumber,email) values('Ankita','Lohar','vagholi','pune','maharashtra',412110,9945236952,'ankitalohar@gmail.com');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select * from Address_book;
++-----------+----------+-----------+----------+-------------+--------+-------------+-----------------------+
+| firstname | lastname | address   | city     | state       | zip    | phonenumber | email                 |
++-----------+----------+-----------+----------+-------------+--------+-------------+-----------------------+
+| Aniket    | Kumbhar  | kolhapur  | kolhapur | maharashtra | 500038 |  9177530369 | aniket@gmail.com      |
+| Mayuri    | Patil    | Nagpur    | Nagpur   | maharashtra | 416310 |  9922134563 | patilmayuri@gmail.com |
+| Prajakta  | Sawant   | Sawantpur | Sangli   | maharashtra | 416308 |  8485821504 | sawantpraju@gmail.com |
+| Vaibhav   | Nikam    | Charoli   | pune     | maharashtra | 412105 |  9960224670 | Vaibhav@gmail.com     |
+| Ankita    | Lohar    | vagholi   | pune     | maharashtra | 412110 |  9945236952 | ankitalohar@gmail.com |
++-----------+----------+-----------+----------+-------------+--------+-------------+-----------------------+
+5 rows in set (0.00 sec)

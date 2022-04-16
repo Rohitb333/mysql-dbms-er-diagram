@@ -16,3 +16,14 @@ mysql> show databases;
 | world              |
 +--------------------+
 7 rows in set (0.10 sec)
+
+=========================================== UC 2 Create Table ====================================================
+mysql> use payroll_service;
+Database changed
+mysql> create table employee(
+    -> id INT unsigned NOT NULL AUTO_INCREMENT,
+    -> name VARCHAR(150) NOT NULL,
+    -> salary Double NOT NULL,
+    -> start DATE NOT NULL,
+    -> PRIMARY KEY (id));
+Query OK, 0 rows affected (3.66 sec)

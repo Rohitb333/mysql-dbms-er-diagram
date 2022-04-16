@@ -151,3 +151,48 @@ mysql> select firstname,city from Address_book order by city;
 | Ankita    | pune     |
 +-----------+----------+
 4 rows in set (0.02 sec)
+
+========================= UC 9 Altering the table with addressbook name and contact type ==================================================
+
+mysql> alter table Address_book add bookname varchar(50) not null,add contacttype varchar(50) not null;
+Query OK, 0 rows affected (3.23 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc address_book;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstname   | varchar(50)  | NO   |     | NULL    |       |
+| lastname    | varchar(50)  | NO   |     | NULL    |       |
+| address     | varchar(100) | NO   |     | NULL    |       |
+| city        | varchar(50)  | NO   |     | NULL    |       |
+| state       | varchar(50)  | NO   |     | NULL    |       |
+| zip         | int          | NO   |     | NULL    |       |
+| phonenumber | double       | NO   |     | NULL    |       |
+| email       | varchar(100) | NO   |     | NULL    |       |
+| bookname    | varchar(50)  | NO   |     | NULL    |       |
+| contacttype | varchar(50)  | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+10 rows in set (0.03 sec)
+mysql> update Address_book set bookname ='Java',contacttype= 'friend' where lastname = 'Kumbhar';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book;
++-----------+----------+----------+----------+-------------+--------+-------------+-----------------------+----------+-------------+
+| firstname | lastname | address  | city     | state       | zip    | phonenumber | email                 | bookname | contacttype |
++-----------+----------+----------+----------+-------------+--------+-------------+-----------------------+----------+-------------+
+| Aniket    | Kumbhar  | kolhapur | kolhapur | maharashtra | 500038 |  9177530369 | aniket@gmail.com      | Java     | friend      |
+| Ruchita   | Patil    | Nagpur   | Nagpur   | maharashtra | 416310 |  9922134563 | patilmayuri@gmail.com |          |             |
+| Vaibhav   | Nikam    | Charoli  | pune     | maharashtra | 412105 |  9960224670 | Vaibhav@gmail.com     |          |             |
+| Ankita    | Lohar    | vagholi  | pune     | maharashtra | 412110 |  9945236952 | ankitalohar@gmail.com |          |             |
++-----------+----------+----------+----------+-------------+--------+-------------+-----------------------+----------+-------------+
+4 rows in set (0.01 sec)
+
+mysql> select * from Address_Book Where contacttype = 'friend';
++-----------+----------+----------+----------+-------------+--------+-------------+------------------+----------+-------------+
+| firstname | lastname | address  | city     | state       | zip    | phonenumber | email            | bookname | contacttype |
++-----------+----------+----------+----------+-------------+--------+-------------+------------------+----------+-------------+
+| Aniket    | Kumbhar  | kolhapur | kolhapur | maharashtra | 500038 |  9177530369 | aniket@gmail.com | Java     | friend      |
++-----------+----------+----------+----------+-------------+--------+-------------+------------------+----------+-------------+
+1 row in set (0.00 sec)

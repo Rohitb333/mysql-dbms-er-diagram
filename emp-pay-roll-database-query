@@ -68,3 +68,17 @@ mysql> select salary from employee where name = 'Rohit';
 | 250000 |
 +--------+
 1 row in set (0.00 sec)
+
+=============================================== UC 6 Update Table ===================================================
+
+mysql> ALTER table employee ADD gender VARCHAR(6) NOT NULL AFTER start;
+Query OK, 0 rows affected (2.77 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update employee set gender = 'M' where name = 'Shubham' or name = 'Rohit';
+Query OK, 2 rows affected (0.19 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update employee set gender = 'F' where name = 'Priti' or name = 'Swati';
+Query OK, 2 row affected (0.11 sec)
+Rows matched: 2  Changed: 2  Warnings: 0

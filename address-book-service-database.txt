@@ -207,3 +207,28 @@ mysql> select count(firstname) from Address_book where contacttype='friend';
 |                1 |
 +------------------+
 1 row in set (0.00 sec)
+
+====================================================UC 11 Create Table ================================================================================
+
+mysql> create table Address_book_Details(
+    ->  SR_No int AUTO_INCREMENT,
+    -> Address_book_type varchar(30),
+    ->  PRIMARY KEY(SR_No));
+Query OK, 0 rows affected (1.27 sec)
+
+mysql> INSERT INTO address_book_details(Address_book_type) VALUES
+    -> ('student');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> INSERT INTO address_book_details(Address_book_type) VALUES
+    -> ('Bank');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> select * from Address_book_details;
++-------+-------------------+
+| SR_No | Address_book_type |
++-------+-------------------+
+|     1 | student           |
+|     2 | Bank              |
++-------+-------------------+
+2 rows in set (0.00 sec)

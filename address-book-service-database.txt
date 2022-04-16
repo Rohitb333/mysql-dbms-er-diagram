@@ -137,3 +137,17 @@ mysql> select count(firstname) from Address_book where city = 'pune';
 |                2 |
 +------------------+
 1 row in set (0.09 sec)
+
+
+==================================================== UC 8 Sorting the name alphbetically for given city =============================================
+
+mysql> select firstname,city from Address_book order by city;
++-----------+----------+
+| firstname | city     |
++-----------+----------+
+| Aniket    | kolhapur |
+| Ruchita   | Nagpur   |
+| Vaibhav   | pune     |
+| Ankita    | pune     |
++-----------+----------+
+4 rows in set (0.02 sec)

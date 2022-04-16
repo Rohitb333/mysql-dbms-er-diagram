@@ -97,3 +97,19 @@ mysql> select * from Address_book;
 | Ankita    | Lohar    | vagholi   | pune     | maharashtra | 412110 |  9945236952 | ankitalohar@gmail.com |
 +-----------+----------+-----------+----------+-------------+--------+-------------+-----------------------+
 5 rows in set (0.09 sec)
+
+============================================== UC 5 Deleting the contact by their lastname ===========================================================
+
+mysql> delete from Address_book where firstname = 'Prajakta';
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from Address_book;
++-----------+----------+----------+----------+-------------+--------+-------------+-----------------------+
+| firstname | lastname | address  | city     | state       | zip    | phonenumber | email                 |
++-----------+----------+----------+----------+-------------+--------+-------------+-----------------------+
+| Aniket    | Kumbhar  | kolhapur | kolhapur | maharashtra | 500038 |  9177530369 | aniket@gmail.com      |
+| Ruchita   | Patil    | Nagpur   | Nagpur   | maharashtra | 416310 |  9922134563 | patilmayuri@gmail.com |
+| Vaibhav   | Nikam    | Charoli  | pune     | maharashtra | 412105 |  9960224670 | Vaibhav@gmail.com     |
+| Ankita    | Lohar    | vagholi  | pune     | maharashtra | 412110 |  9945236952 | ankitalohar@gmail.com |
++-----------+----------+----------+----------+-------------+--------+-------------+-----------------------+
+4 rows in set (0.10 sec)
